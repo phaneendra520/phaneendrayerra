@@ -6,6 +6,55 @@
   <title>Phaneendra Yerra | Global Markets Technology</title>
   <meta name="description" content="Phaneendra Yerra — Global Markets Technology leader. Research and engineering in resilient trading systems, post-trade automation, and applied AI." />
   <link rel="stylesheet" href="style.css" />
+
+  <!-- Papers UI (kept self-contained so you don't have to edit style.css) -->
+  <style>
+    .paper-meta { display:flex; gap:10px; flex-wrap:wrap; margin-top:10px; }
+    .paper-chip {
+      display:inline-flex; align-items:center; gap:8px;
+      padding:8px 10px; border-radius:999px;
+      border:1px solid rgba(255,255,255,0.14);
+      background: rgba(255,255,255,0.04);
+      font-size: 14px;
+    }
+    .paper-tabs { display:flex; flex-wrap:wrap; gap:10px; margin-top:14px; }
+    .paper-tab {
+      border: 1px solid rgba(255,255,255,0.14);
+      background: rgba(255,255,255,0.04);
+      color: inherit;
+      padding: 10px 12px;
+      border-radius: 12px;
+      cursor: pointer;
+      font: inherit;
+      line-height: 1.1;
+      text-align: left;
+    }
+    .paper-tab strong { display:block; font-weight:600; }
+    .paper-tab span { display:block; opacity:0.8; font-size: 13px; margin-top: 6px; }
+    .paper-tab.active {
+      border-color: rgba(255,255,255,0.28);
+      background: rgba(255,255,255,0.08);
+    }
+    .paper-frame-wrap { margin-top: 14px; }
+    .paper-frame {
+      width: 100%;
+      height: min(70vh, 820px);
+      border: 1px solid rgba(255,255,255,0.14);
+      border-radius: 16px;
+      background: rgba(255,255,255,0.02);
+    }
+    .paper-fallback { margin-top: 10px; }
+    .paper-list { margin-top: 14px; }
+    .paper-item {
+      display:flex; gap:14px; padding:14px 0;
+      border-top: 1px solid rgba(255,255,255,0.10);
+    }
+    .paper-item:first-child { border-top: none; }
+    .paper-date { min-width: 110px; opacity: 0.85; }
+    .paper-body h3 { margin: 0 0 6px 0; }
+    .paper-body p { margin: 0; }
+    .paper-links { margin-top: 8px; display:flex; gap:14px; flex-wrap:wrap; }
+  </style>
 </head>
 <body>
   <header class="container">
@@ -14,6 +63,7 @@
       <div class="links">
         <a href="#work">Work</a>
         <a href="#research">Research</a>
+        <a href="#papers">Papers</a>
         <a href="#writing">Writing</a>
         <a href="#contact">Contact</a>
       </div>
@@ -95,6 +145,187 @@
       </div>
     </section>
 
+    <!-- NEW: Papers (tabs + embedded viewer) -->
+    <section id="papers" class="section">
+      <h2>Papers</h2>
+      <p class="muted">Select a paper to view it here without leaving the site.</p>
+
+      <div class="paper-meta">
+        <span class="paper-chip">Published papers</span>
+        <span class="paper-chip">AI • FinTech • Security</span>
+        <span class="paper-chip">Distributed Systems</span>
+        <span class="paper-chip">Post-Quantum</span>
+      </div>
+
+      <!--
+        NOTE:
+        - Replace each data-url with the *direct paper URL* (publisher page or PDF).
+        - If a publisher blocks iframe embedding, the "Open in new tab" link still works.
+      -->
+      <div class="paper-tabs" role="tablist" aria-label="Research papers">
+        <button class="paper-tab active" role="tab" aria-selected="true"
+          data-url="https://jisem-journal.com">
+          <strong>Quantum AI for Intraday Basel Capital Adequacy &amp; T+0 Settlement Risk</strong>
+          <span>May 25, 2025 • Journal of Information Systems Engineering and Management</span>
+        </button>
+
+        <button class="paper-tab" role="tab" aria-selected="false"
+          data-url="https://jisem-journal.com">
+          <strong>Agentic AI Framework for Automating Legacy Core-Banking Operations and Regulatory Reporting Pipe-lines</strong>
+          <span>Feb 27, 2025 • Journal of Information Systems Engineering and Management</span>
+        </button>
+
+        <button class="paper-tab" role="tab" aria-selected="false"
+          data-url="#">
+          <strong>Post-Quantum Regulatory Cybersecurity for Global Banking and Financial Infrastructure</strong>
+          <span>Dec 12, 2024 • Computer Fraud &amp; Security</span>
+        </button>
+
+        <button class="paper-tab" role="tab" aria-selected="false"
+          data-url="https://ijisae.org/">
+          <strong>Scalable Real-Time Market Data Processing Architecture for High-Volume Multi-Asset Analytics in Fund Management</strong>
+          <span>Oct 12, 2024 • IJISAE</span>
+        </button>
+
+        <button class="paper-tab" role="tab" aria-selected="false"
+          data-url="https://ijisae.org/">
+          <strong>GENAI-DRIVEN SCENARIO GENERATION FOR INTRADAY MARKET RISK, LIQUIDITY STRESS TESTING, AND PORTFOLIO OPTIMIZATION</strong>
+          <span>Mar 05, 2024 • IJISAE</span>
+        </button>
+
+        <button class="paper-tab" role="tab" aria-selected="false"
+          data-url="https://ijritcc.org/index.php/ijritcc/article/view/11810">
+          <strong>Forecasting FX Settlement Liquidity Requirements Using Statistical &amp; ML Models</strong>
+          <span>Dec 04, 2023 • IJRITCC</span>
+        </button>
+
+        <button class="paper-tab" role="tab" aria-selected="false"
+          data-url="https://www.ijcnis.org/index.php/ijcnis">
+          <strong>A Secure Cloud-Native API Architecture for Banking: Integrating Zero-Trust Controls and Data-Science-Driven Threat Intelligence</strong>
+          <span>Aug 15, 2022 • IJCNIS</span>
+        </button>
+
+        <button class="paper-tab" role="tab" aria-selected="false"
+          data-url="https://www.webology.org/">
+          <strong>Confidence-Driven Human-in-the-Loop RPA Framework for Automating Corporate Actions Notice Interpretation in Post-Trade Operations</strong>
+          <span>Mar 09, 2021 • Webology</span>
+        </button>
+      </div>
+
+      <div class="paper-frame-wrap">
+        <iframe
+          id="paperFrame"
+          class="paper-frame"
+          title="Paper viewer"
+          loading="lazy"
+          referrerpolicy="no-referrer"
+          src="https://jisem-journal.com">
+        </iframe>
+
+        <p class="muted paper-fallback">
+          If this paper doesn’t load here, the publisher may block embedding.
+          <a id="paperOpenNew" class="textlink" href="https://jisem-journal.com" target="_blank" rel="noreferrer">
+            Open in a new tab →
+          </a>
+        </p>
+      </div>
+
+      <!-- Optional: simple list view below (kept for SEO/readability) -->
+      <div class="paper-list">
+        <div class="paper-item">
+          <div class="paper-date">May 25, 2025</div>
+          <div class="paper-body">
+            <h3>Quantum AI for Intraday Basel Capital Adequacy &amp; T+0 Settlement Risk</h3>
+            <p class="muted">Journal of Information Systems Engineering and Management • Published</p>
+            <div class="paper-links">
+              <a class="textlink" href="https://jisem-journal.com" target="_blank" rel="noreferrer">Publisher →</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="paper-item">
+          <div class="paper-date">Feb 27, 2025</div>
+          <div class="paper-body">
+            <h3>Agentic AI Framework for Automating Legacy Core-Banking Operations and Regulatory Reporting Pipe-lines</h3>
+            <p class="muted">Journal of Information Systems Engineering and Management • Published</p>
+            <div class="paper-links">
+              <a class="textlink" href="https://jisem-journal.com" target="_blank" rel="noreferrer">Publisher →</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="paper-item">
+          <div class="paper-date">Dec 12, 2024</div>
+          <div class="paper-body">
+            <h3>Post-Quantum Regulatory Cybersecurity for Global Banking and Financial Infrastructure</h3>
+            <p class="muted">Computer Fraud &amp; Security • Published</p>
+            <div class="paper-links">
+              <a class="textlink" href="#" aria-disabled="true">Publisher link (add URL) →</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="paper-item">
+          <div class="paper-date">Oct 12, 2024</div>
+          <div class="paper-body">
+            <h3>Scalable Real-Time Market Data Processing Architecture for High-Volume Multi-Asset Analytics in Fund Management</h3>
+            <p class="muted">International Journal of Intelligent Systems and Applications in Engineering (IJISAE) • Published</p>
+            <div class="paper-links">
+              <a class="textlink" href="https://ijisae.org/" target="_blank" rel="noreferrer">Publisher →</a>
+              <a class="textlink" href="https://www.scopus.com/sourceid/21101021990" target="_blank" rel="noreferrer">Scopus Source ID →</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="paper-item">
+          <div class="paper-date">Mar 05, 2024</div>
+          <div class="paper-body">
+            <h3>GenAI-Driven Scenario Generation for Intraday Market Risk, Liquidity Stress Testing, and Portfolio Optimization</h3>
+            <p class="muted">International Journal of Intelligent Systems and Applications in Engineering (IJISAE) • Published</p>
+            <div class="paper-links">
+              <a class="textlink" href="https://ijisae.org/" target="_blank" rel="noreferrer">Publisher →</a>
+              <a class="textlink" href="https://www.scopus.com/sourceid/21101021990" target="_blank" rel="noreferrer">Scopus Source ID →</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="paper-item">
+          <div class="paper-date">Dec 04, 2023</div>
+          <div class="paper-body">
+            <h3>Forecasting FX Settlement Liquidity Requirements Using Statistical &amp; ML Models</h3>
+            <p class="muted">International Journal on Recent and Innovation Trends in Computing and Communication (IJRITCC) • Published</p>
+            <div class="paper-links">
+              <a class="textlink" href="https://ijritcc.org/index.php/ijritcc/article/view/11810" target="_blank" rel="noreferrer">Paper page →</a>
+              <a class="textlink" href="https://www.scopus.com/sourceid/21101089961" target="_blank" rel="noreferrer">Scopus Source ID →</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="paper-item">
+          <div class="paper-date">Aug 15, 2022</div>
+          <div class="paper-body">
+            <h3>A Secure Cloud-Native API Architecture for Banking: Integrating Zero-Trust Controls and Data-Science-Driven Threat Intelligence</h3>
+            <p class="muted">International Journal of Communication Networks and Information Security (IJCNIS) • Published</p>
+            <div class="paper-links">
+              <a class="textlink" href="https://www.ijcnis.org/index.php/ijcnis" target="_blank" rel="noreferrer">Journal →</a>
+              <a class="textlink" href="https://www.scopus.com/sourceid/19900195075" target="_blank" rel="noreferrer">Scopus Source ID →</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="paper-item">
+          <div class="paper-date">Mar 09, 2021</div>
+          <div class="paper-body">
+            <h3>Confidence-Driven Human-in-the-Loop RPA Framework for Automating Corporate Actions Notice Interpretation in Post-Trade Operations</h3>
+            <p class="muted">Webology • Published</p>
+            <div class="paper-links">
+              <a class="textlink" href="https://www.webology.org/" target="_blank" rel="noreferrer">Journal →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section id="writing" class="section">
       <h2>Writing</h2>
       <div class="grid">
@@ -132,6 +363,27 @@
 
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Papers tabs -> iframe viewer
+    const tabs = Array.from(document.querySelectorAll(".paper-tab"));
+    const frame = document.getElementById("paperFrame");
+    const openNew = document.getElementById("paperOpenNew");
+
+    function setActiveTab(tab) {
+      tabs.forEach(t => {
+        const isActive = t === tab;
+        t.classList.toggle("active", isActive);
+        t.setAttribute("aria-selected", String(isActive));
+      });
+
+      const url = tab.getAttribute("data-url") || "#";
+      frame.src = url;
+      openNew.href = url;
+    }
+
+    tabs.forEach(tab => {
+      tab.addEventListener("click", () => setActiveTab(tab));
+    });
   </script>
 </body>
 </html>
