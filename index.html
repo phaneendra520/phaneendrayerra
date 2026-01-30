@@ -1,406 +1,780 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Phaneendra Yerra | Global Markets Technology</title>
-  <meta name="description" content="Phaneendra Yerra — Global Markets Technology leader. Research and engineering in resilient trading systems, post-trade automation, and applied AI." />
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phaneendra Yerra | Global Markets Technology</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=IBM+Plex+Mono:wght@400;500&family=Crimson+Pro:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0A0E27;
+            --secondary: #1A1F3A;
+            --accent: #00D9FF;
+            --accent-warm: #FF6B35;
+            --text: #E8E9ED;
+            --text-muted: #A0A3B5;
+            --surface: #12162E;
+            --surface-elevated: #1C2140;
+        }
 
-  <!-- Clean, professional additions (kept inline so you don't have to touch style.css) -->
-  <style>
-    .section-head {
-      display: flex;
-      gap: 14px;
-      align-items: flex-end;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      margin-bottom: 10px;
-    }
-    .section-head p { margin: 0; }
-    .meta-links {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      align-items: center;
-    }
-    .meta-links .textlink { white-space: nowrap; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    .pillrow { display:flex; gap:10px; flex-wrap:wrap; margin-top: 10px; }
-    .pill {
-      display:inline-flex;
-      align-items:center;
-      padding: 8px 10px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.14);
-      background: rgba(255,255,255,0.04);
-      font-size: 14px;
-      line-height: 1;
-    }
+        html {
+            scroll-behavior: smooth;
+        }
 
-    .pubs-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 12px;
-      margin-top: 14px;
-    }
-    .pub-card {
-      border: 1px solid rgba(255,255,255,0.14);
-      background: rgba(255,255,255,0.04);
-      border-radius: 16px;
-      padding: 14px 14px;
-    }
-    .pub-top {
-      display:flex;
-      gap: 12px;
-      align-items: baseline;
-      justify-content: space-between;
-      flex-wrap: wrap;
-    }
-    .pub-top h3 {
-      margin: 0;
-      font-size: 18px;
-      letter-spacing: 0.1px;
-    }
-    .pub-date {
-      opacity: 0.85;
-      font-size: 14px;
-      white-space: nowrap;
-    }
-    .pub-meta {
-      margin-top: 8px;
-      display:flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      opacity: 0.85;
-      font-size: 14px;
-    }
-    .pub-actions {
-      margin-top: 10px;
-      display:flex;
-      gap: 14px;
-      flex-wrap: wrap;
-      align-items: center;
-    }
-    .pub-actions a { white-space: nowrap; }
+        body {
+            font-family: 'Crimson Pro', serif;
+            background: var(--primary);
+            color: var(--text);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
 
-    .writing-row {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 12px;
-      margin-top: 14px;
-    }
-    @media (max-width: 860px) {
-      .writing-row { grid-template-columns: 1fr; }
-    }
-    .mini-card {
-      border: 1px solid rgba(255,255,255,0.14);
-      background: rgba(255,255,255,0.04);
-      border-radius: 16px;
-      padding: 14px;
-    }
-    .mini-card h3 { margin: 0 0 8px 0; }
-    .mini-card p { margin: 0; }
-    .mini-card .actions { margin-top: 10px; display:flex; gap: 14px; flex-wrap: wrap; }
-  </style>
+            /* Animated background gradient */
+            body::before {
+                content: '';
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: radial-gradient(circle at 20% 50%, rgba(0, 217, 255, 0.05) 0%, transparent 50%), radial-gradient(circle at 80% 80%, rgba(255, 107, 53, 0.05) 0%, transparent 50%);
+                pointer-events: none;
+                z-index: 0;
+            }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 14, 39, 0.85);
+            backdrop-filter: blur(12px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0, 217, 255, 0.1);
+        }
+
+            nav .container {
+                max-width: 1400px;
+                margin: 0 auto;
+                padding: 1.5rem 3rem;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            nav .logo {
+                font-family: 'Syne', sans-serif;
+                font-weight: 800;
+                font-size: 1.4rem;
+                color: var(--accent);
+                text-decoration: none;
+                letter-spacing: -0.02em;
+            }
+
+            nav ul {
+                display: flex;
+                list-style: none;
+                gap: 2.5rem;
+            }
+
+            nav a {
+                color: var(--text);
+                text-decoration: none;
+                font-family: 'IBM Plex Mono', monospace;
+                font-size: 0.9rem;
+                transition: color 0.3s;
+                position: relative;
+            }
+
+                nav a:hover {
+                    color: var(--accent);
+                }
+
+                nav a::after {
+                    content: '';
+                    position: absolute;
+                    bottom: -4px;
+                    left: 0;
+                    width: 0;
+                    height: 2px;
+                    background: var(--accent);
+                    transition: width 0.3s;
+                }
+
+                nav a:hover::after {
+                    width: 100%;
+                }
+
+        /* Container */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 3rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 80px;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 900px;
+        }
+
+        .hero-label {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.85rem;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-bottom: 2rem;
+            display: inline-block;
+            opacity: 0;
+            animation: fadeInUp 0.8s forwards 0.2s;
+        }
+
+        .hero h1 {
+            font-family: 'Syne', sans-serif;
+            font-size: 5rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 2rem;
+            background: linear-gradient(135deg, var(--text) 0%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            opacity: 0;
+            animation: fadeInUp 0.8s forwards 0.4s;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: var(--text-muted);
+            margin-bottom: 3rem;
+            max-width: 700px;
+            opacity: 0;
+            animation: fadeInUp 0.8s forwards 0.6s;
+        }
+
+        .hero-links {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            opacity: 0;
+            animation: fadeInUp 0.8s forwards 0.8s;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.9rem;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: all 0.3s;
+            display: inline-block;
+            border: 2px solid transparent;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+            .btn-primary:hover {
+                background: transparent;
+                border-color: var(--accent);
+                color: var(--accent);
+                transform: translateY(-2px);
+            }
+
+        .btn-secondary {
+            border: 2px solid var(--text-muted);
+            color: var(--text);
+        }
+
+            .btn-secondary:hover {
+                border-color: var(--accent);
+                color: var(--accent);
+                transform: translateY(-2px);
+            }
+
+        /* Tag Pills */
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin: 3rem 0;
+        }
+
+        .tag {
+            padding: 0.6rem 1.2rem;
+            background: var(--surface-elevated);
+            border: 1px solid rgba(0, 217, 255, 0.2);
+            border-radius: 50px;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.85rem;
+            color: var(--accent);
+            transition: all 0.3s;
+        }
+
+            .tag:hover {
+                background: rgba(0, 217, 255, 0.1);
+                border-color: var(--accent);
+                transform: translateY(-2px);
+            }
+
+        /* Section Styling */
+        section {
+            padding: 8rem 0;
+            position: relative;
+        }
+
+            section h2 {
+                font-family: 'Syne', sans-serif;
+                font-size: 3.5rem;
+                font-weight: 700;
+                margin-bottom: 1rem;
+                background: linear-gradient(135deg, var(--text) 0%, var(--accent) 100%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+            }
+
+            section h3 {
+                font-family: 'Syne', sans-serif;
+                font-size: 1.8rem;
+                font-weight: 600;
+                color: var(--text);
+                margin-bottom: 1rem;
+            }
+
+        .section-intro {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            margin-bottom: 4rem;
+            max-width: 800px;
+        }
+
+        /* Highlights Grid */
+        .highlights-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .highlight-card {
+            background: var(--surface);
+            border: 1px solid rgba(0, 217, 255, 0.15);
+            border-radius: 8px;
+            padding: 2rem;
+            transition: all 0.4s;
+            position: relative;
+            overflow: hidden;
+        }
+
+            .highlight-card::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 4px;
+                height: 0;
+                background: var(--accent);
+                transition: height 0.4s;
+            }
+
+            .highlight-card:hover {
+                transform: translateY(-8px);
+                border-color: var(--accent);
+                background: var(--surface-elevated);
+            }
+
+                .highlight-card:hover::before {
+                    height: 100%;
+                }
+
+            .highlight-card p {
+                color: var(--text-muted);
+                font-size: 1.05rem;
+            }
+
+        /* Work Cards */
+        .work-grid {
+            display: grid;
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .work-item {
+            background: var(--surface);
+            border: 1px solid rgba(0, 217, 255, 0.15);
+            border-radius: 8px;
+            padding: 3rem;
+            transition: all 0.4s;
+        }
+
+            .work-item:hover {
+                border-color: var(--accent);
+                transform: translateX(10px);
+            }
+
+            .work-item h3 {
+                color: var(--accent);
+                margin-bottom: 1.5rem;
+            }
+
+            .work-item p {
+                color: var(--text-muted);
+                font-size: 1.1rem;
+            }
+
+        /* Research Section */
+        .research-topics {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin: 2rem 0 4rem 0;
+        }
+
+        .research-topic {
+            padding: 0.8rem 1.5rem;
+            background: linear-gradient(135deg, rgba(0, 217, 255, 0.1) 0%, rgba(255, 107, 53, 0.1) 100%);
+            border: 1px solid rgba(0, 217, 255, 0.3);
+            border-radius: 6px;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.9rem;
+            color: var(--accent);
+        }
+
+        /* Publications */
+        .publication {
+            background: var(--surface);
+            border-left: 4px solid var(--accent-warm);
+            border-radius: 0 8px 8px 0;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            transition: all 0.3s;
+        }
+
+            .publication:hover {
+                transform: translateX(8px);
+                background: var(--surface-elevated);
+            }
+
+        .publication-title {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 1rem;
+            line-height: 1.4;
+        }
+
+        .publication-meta {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+        }
+
+        .publication-venue {
+            color: var(--accent);
+            font-weight: 500;
+        }
+
+        .publication-link {
+            display: inline-block;
+            margin-top: 1rem;
+            color: var(--accent);
+            text-decoration: none;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.9rem;
+            border: 1px solid var(--accent);
+            padding: 0.5rem 1.2rem;
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+
+            .publication-link:hover {
+                background: var(--accent);
+                color: var(--primary);
+            }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .project-card {
+            background: var(--surface);
+            border: 1px solid rgba(0, 217, 255, 0.15);
+            border-radius: 8px;
+            padding: 2.5rem;
+            transition: all 0.4s;
+        }
+
+            .project-card:hover {
+                border-color: var(--accent);
+                transform: translateY(-8px);
+            }
+
+            .project-card h3 {
+                font-size: 1.5rem;
+                margin-bottom: 1rem;
+            }
+
+            .project-card p {
+                color: var(--text-muted);
+                margin-bottom: 1.5rem;
+            }
+
+        .project-link {
+            color: var(--accent);
+            text-decoration: none;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+            .project-link:hover {
+                text-decoration: underline;
+            }
+
+        /* Contact Section */
+        .contact-content {
+            max-width: 600px;
+            margin: 3rem auto;
+            text-align: center;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .contact-link {
+            padding: 1.2rem 2.5rem;
+            background: var(--surface);
+            border: 2px solid var(--accent);
+            color: var(--accent);
+            text-decoration: none;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 1rem;
+            border-radius: 6px;
+            transition: all 0.3s;
+        }
+
+            .contact-link:hover {
+                background: var(--accent);
+                color: var(--primary);
+                transform: translateY(-4px);
+            }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid rgba(0, 217, 255, 0.1);
+            padding: 3rem 0;
+            text-align: center;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 1.5rem;
+            }
+
+            nav .container {
+                padding: 1rem 1.5rem;
+            }
+
+            nav ul {
+                gap: 1.5rem;
+            }
+
+            .hero h1 {
+                font-size: 3rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+
+            section h2 {
+                font-size: 2.5rem;
+            }
+
+            .highlights-grid,
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-links {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
 </head>
-
 <body>
-  <header class="container">
-    <nav class="nav">
-      <a class="brand" href="#">Phaneendra V Yerra</a>
-      <div class="links">
-        <a href="#work">Work</a>
-        <a href="#research">Research</a>
-        <a href="#contact">Contact</a>
-      </div>
+    <nav>
+        <div class="container">
+            <a href="#" class="logo">PVY</a>
+            <ul>
+                <li><a href="#work">Work</a></li>
+                <li><a href="#research">Research</a></li>
+                <li><a href="#publications">Publications</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
     </nav>
 
     <section class="hero">
-      <div>
-        <p class="kicker">Global Markets Technology • VP</p>
-        <h1>Building resilient trading and post-trade platforms.</h1>
-        <p class="sub">
-          I work on high-availability, low-latency market infrastructure and automation for global markets.
-          My research interests include applied AI, distributed systems, and secure financial networks.
-        </p>
-
-        <div class="cta">
-          <a class="btn primary" href="#contact">Contact</a>
-          <a class="btn" href="https://github.com/phaneendra520/phaneendrayerra" target="_blank" rel="noreferrer">GitHub</a>
-          <a class="btn"
-             href="https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=Phaneendra+Yerra"
-             target="_blank" rel="noreferrer"
-             title="Google Scholar (phaneendrayerra@gmail.com)">
-            Google Scholar
-          </a>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-label">Global Markets Technology • VP</div>
+                <h1>Building resilient trading and post-trade platforms.</h1>
+                <p class="hero-subtitle">I work on high-availability, low-latency market infrastructure and automation for global markets. My research interests include applied AI, distributed systems, and secure financial networks.</p>
+                <div class="hero-links">
+                    <a href="#contact" class="btn btn-primary">Get in Touch</a>
+                    <a href="https://github.com/phaneendra520/phaneendrayerra" class="btn btn-secondary" target="_blank">GitHub</a>
+                    <a href="https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=Phaneendra+Yerra" class="btn btn-secondary" target="_blank">Google Scholar</a>
+                </div>
+                <div class="tags">
+                    <span class="tag">Distributed Systems</span>
+                    <span class="tag">Post-Trade Automation</span>
+                    <span class="tag">Market Infrastructure</span>
+                    <span class="tag">Applied AI</span>
+                </div>
+            </div>
         </div>
-
-        <div class="badges">
-          <span class="badge">Distributed Systems</span>
-          <span class="badge">Post-Trade Automation</span>
-          <span class="badge">Market Infrastructure</span>
-          <span class="badge">Applied AI</span>
-        </div>
-      </div>
-
-      <div class="card">
-        <h2>Highlights</h2>
-        <ul>
-          <li>High-availability integration frameworks across MQ, files, and APIs</li>
-          <li>Operational excellence: observability, resiliency, and incident reduction</li>
-          <li>Research & writing aligned to fintech infrastructure and security</li>
-        </ul>
-      </div>
-    </section>
-  </header>
-
-  <main class="container">
-    <section id="work" class="section">
-      <h2>Work</h2>
-      <div class="grid">
-        <article class="tile">
-          <h3>Market Infrastructure</h3>
-          <p>Designing and modernizing critical pipelines that support trading and post-trade processing.</p>
-        </article>
-        <article class="tile">
-          <h3>Automation & Controls</h3>
-          <p>Building automation, validation, and control frameworks to improve stability and reduce operational risk.</p>
-        </article>
-        <article class="tile">
-          <h3>Observability</h3>
-          <p>Metrics, tracing, alerting, and runbooks to improve mean time to detect and resolve incidents.</p>
-        </article>
-      </div>
     </section>
 
-    <!-- MERGED: Research + Papers + Writing -->
-    <section id="research" class="section">
-      <div class="section-head">
-        <div>
-          <h2>Research & Publications</h2>
-          <p class="muted">
-            Focus: AI for operational risk and automation, secure financial networks (post-quantum), and scalable market-data systems.
-          </p>
+    <section>
+        <div class="container">
+            <h2>Highlights</h2>
+            <div class="highlights-grid">
+                <div class="highlight-card">
+                    <p>High-availability integration frameworks across MQ, files, and APIs</p>
+                </div>
+                <div class="highlight-card">
+                    <p>Operational excellence: observability, resiliency, and incident reduction</p>
+                </div>
+                <div class="highlight-card">
+                    <p>Research & writing aligned to fintech infrastructure and security</p>
+                </div>
+            </div>
         </div>
-
-        <div class="meta-links">
-          <a class="textlink" href="https://orcid.org/0009-0006-9165-3331" target="_blank" rel="noreferrer">ORCID</a>
-          <a class="textlink"
-             href="https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=Phaneendra+Yerra"
-             target="_blank" rel="noreferrer"
-             title="Google Scholar (phaneendrayerra@gmail.com)">
-            Scholar
-          </a>
-          <a class="textlink" href="https://github.com/phaneendra520" target="_blank" rel="noreferrer">GitHub</a>
-        </div>
-      </div>
-
-      <div class="pillrow">
-        <span class="pill">AI Security</span>
-        <span class="pill">Secure Distributed Ledgers</span>
-        <span class="pill">Post-Quantum Security</span>
-        <span class="pill">Market Infrastructure</span>
-        <span class="pill">Post-Trade Automation</span>
-      </div>
-
-      <!-- Research themes (kept short + clean) -->
-      <div class="list" style="margin-top: 16px;">
-        <div class="row">
-          <div class="dot"></div>
-          <div>
-            <h3>Quantum-secured architectures for time-sensitive finance</h3>
-            <p>Secure communication models, threat resilience, and performance constraints for real-time trading systems.</p>
-          </div>
-        </div>
-        <div class="row">
-          <div class="dot"></div>
-          <div>
-            <h3>AI-driven exception management for post-trade workflows</h3>
-            <p>Human-in-the-loop ML controls for prioritization, routing, remediation, and auditability.</p>
-          </div>
-        </div>
-        <div class="row">
-          <div class="dot"></div>
-          <div>
-            <h3>Scalable market-data processing and analytics pipelines</h3>
-            <p>Architectures for high-throughput ingestion, normalization, and multi-asset analytics at scale.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Publications (clean list, opens in new tab) -->
-      <h2 style="margin-top: 22px;">Selected Publications</h2>
-      <p class="muted">All links open in a new tab.</p>
-
-      <div class="pubs-grid">
-        <article class="pub-card">
-          <div class="pub-top">
-            <h3>Quantum AI for Intraday Basel Capital Adequacy &amp; T+0 Settlement Risk</h3>
-            <div class="pub-date">May 25, 2025</div>
-          </div>
-          <div class="pub-meta">
-            <span>Journal of Information Systems Engineering and Management</span>
-            <span>•</span>
-            <span>Published</span>
-          </div>
-          <div class="pub-actions">
-            <a class="textlink" href="https://jisem-journal.com/index.php/journal/article/view/13925" target="_blank" rel="noreferrer">View at publisher →</a>
-          </div>
-        </article>
-
-        <article class="pub-card">
-          <div class="pub-top">
-            <h3>Agentic AI Framework for Automating Legacy Core-Banking Operations and Regulatory Reporting Pipe-lines</h3>
-            <div class="pub-date">Feb 27, 2025</div>
-          </div>
-          <div class="pub-meta">  
-            <span>Journal of Information Systems Engineering and Management</span>
-            <span>•</span>
-            <span>Published</span>
-          </div>
-          <div class="pub-actions">
-            <a class="textlink" href="https://jisem-journal.com/index.php/journal/article/view/13924" target="_blank" rel="noreferrer">View at publisher →</a>
-          </div>
-        </article>
-
-        <article class="pub-card">
-          <div class="pub-top">
-            <h3>Post-Quantum Regulatory Cybersecurity for Global Banking and Financial Infrastructure</h3>
-            <div class="pub-date">Dec 12, 2024</div>
-          </div>
-          <div class="pub-meta">
-            <span>Computer Fraud &amp; Security</span>
-            <span>•</span>
-            <span>Published</span>
-          </div>
-          <div class="pub-actions">
-            <a class="textlink" href="https://computerfraudsecurity.com/index.php/journal/article/view/853" target="_blank" aria-disabled="true">View at publisher →</a>
-          </div>
-        </article>
-
-        <article class="pub-card">
-          <div class="pub-top">
-            <h3>Scalable Real-Time Market Data Processing Architecture for High-Volume Multi-Asset Analytics in Fund Management</h3>
-            <div class="pub-date">Oct 12, 2024</div>
-          </div>
-          <div class="pub-meta">
-            <span>International Journal of Intelligent Systems and Applications in Engineering (IJISAE)</span>
-            <span>•</span>
-            <span>Published</span>
-          </div>
-          <div class="pub-actions">
-            <a class="textlink" href="https://ijisae.org/index.php/IJISAE/article/view/7973" target="_blank" rel="noreferrer">View at publisher →</a>
-          </div>
-        </article>
-
-        <article class="pub-card">
-          <div class="pub-top">
-            <h3>GenAI-Driven Scenario Generation for Intraday Market Risk, Liquidity Stress Testing, and Portfolio Optimization</h3>
-            <div class="pub-date">Mar 05, 2024</div>
-          </div>
-          <div class="pub-meta">
-            <span>International Journal of Intelligent Systems and Applications in Engineering (IJISAE)</span>
-            <span>•</span>
-            <span>Published</span>
-          </div>
-          <div class="pub-actions">
-            <a class="textlink" href="https://ijisae.org/index.php/IJISAE/article/view/7974" target="_blank" rel="noreferrer">View at publisher →</a>
-          </div>
-        </article>
-
-        <article class="pub-card">
-          <div class="pub-top">
-            <h3>Forecasting FX Settlement Liquidity Requirements Using Statistical &amp; ML Models</h3>
-            <div class="pub-date">Dec 04, 2023</div>
-          </div>
-          <div class="pub-meta">
-            <span>International Journal on Recent and Innovation Trends in Computing and Communication (IJRITCC)</span>
-            <span>•</span>
-            <span>Published</span>
-          </div>
-          <div class="pub-actions">
-            <a class="textlink" href="https://ijritcc.org/index.php/ijritcc/article/view/11810" target="_blank" rel="noreferrer">View at publisher →</a>
-          </div>
-        </article>
-
-        <article class="pub-card">
-          <div class="pub-top">
-            <h3>A Secure Cloud-Native API Architecture for Banking: Integrating Zero-Trust Controls and Data-Science-Driven Threat Intelligence</h3>
-            <div class="pub-date">Aug 15, 2022</div>
-          </div>
-          <div class="pub-meta">
-            <span>International Journal of Communication Networks and Information Security (IJCNIS)</span>
-            <span>•</span>
-            <span>Published</span>
-          </div>
-          <div class="pub-actions">
-            <a class="textlink" href="https://mail.ijcnis.org/index.php/ijcnis/article/view/8688" target="_blank" rel="noreferrer">View at publisher →</a>
-          </div>
-        </article>
-
-        <article class="pub-card">
-          <div class="pub-top">
-            <h3>Confidence-Driven Human-in-the-Loop RPA Framework for Automating Corporate Actions Notice Interpretation in Post-Trade Operations</h3>
-            <div class="pub-date">Mar 09, 2021</div>
-          </div>
-          <div class="pub-meta">
-            <span>Computer Fraud &amp; Security</span>
-            <span>•</span>
-            <span>Published</span>
-          </div>
-          <div class="pub-actions">
-            <a class="textlink" href="https://computerfraudsecurity.com/index.php/journal/article/view/847" target="_blank" rel="noreferrer">View at publisher →</a>
-          </div>
-        </article>
-      </div>
-
-      <!-- Writing + Projects (merged here, clean & minimal) -->
-      <h2 style="margin-top: 22px;">Writing & Projects</h2>
-      <div class="writing-row">
-        <div class="mini-card">
-          <h3>Blog</h3>
-          <p class="muted">Short notes on engineering, architecture, and research ideas.</p>
-          <div class="actions">
-            <a class="textlink" href="#" aria-disabled="true">Coming soon →</a>
-          </div>
-        </div>
-        <div class="mini-card">
-          <h3>Profiles</h3>
-          <p class="muted">Publication and author profiles.</p>
-          <div class="actions">
-            <a class="textlink" href="https://orcid.org/0009-0006-9165-3331" target="_blank" rel="noreferrer">ORCID →</a>
-            <a class="textlink"
-               href="https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=Phaneendra+Yerra"
-               target="_blank" rel="noreferrer"
-               title="Google Scholar (phaneendrayerra@gmail.com)">
-              Scholar →
-            </a>
-          </div>
-        </div>
-        <div class="mini-card">
-          <h3>Projects</h3>
-          <p class="muted">Code samples and prototypes hosted on GitHub.</p>
-          <div class="actions">
-            <a class="textlink" href="https://github.com/phaneendra520" target="_blank" rel="noreferrer">github.com/phaneendra520 →</a>
-          </div>
-        </div>
-      </div>
     </section>
 
-    <section id="contact" class="section">
-      <h2>Contact</h2>
-      <p class="muted">Best way to reach me:</p>
-      <div class="contact">
-        <a class="btn primary" href="mailto:phaneendrayerra@outlook.com">Email</a>
-        <a class="btn" href="https://www.linkedin.com/" target="_blank" rel="noreferrer">LinkedIn</a>
-      </div>
-      <p class="footnote">© <span id="year"></span> Phaneendra Yerra</p>
+    <section id="work">
+        <div class="container">
+            <h2>Work</h2>
+            <div class="work-grid">
+                <div class="work-item">
+                    <h3>Market Infrastructure</h3>
+                    <p>Designing and modernizing critical pipelines that support trading and post-trade processing.</p>
+                </div>
+                <div class="work-item">
+                    <h3>Automation & Controls</h3>
+                    <p>Building automation, validation, and control frameworks to improve stability and reduce operational risk.</p>
+                </div>
+                <div class="work-item">
+                    <h3>Observability</h3>
+                    <p>Metrics, tracing, alerting, and runbooks to improve mean time to detect and resolve incidents.</p>
+                </div>
+            </div>
+        </div>
     </section>
-  </main>
 
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
+    <section id="research">
+        <div class="container">
+            <h2>Research & Publications</h2>
+            <p class="section-intro">Focus: AI for operational risk and automation, secure financial networks (post-quantum), and scalable market-data systems.</p>
+
+            <div style="margin-bottom: 3rem;">
+                <a href="https://orcid.org/0009-0006-9165-3331" target="_blank" class="btn btn-secondary" style="margin-right: 1rem;">ORCID</a>
+                <a href="https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=Phaneendra+Yerra" target="_blank" class="btn btn-secondary" style="margin-right: 1rem;">Scholar</a>
+                <a href="https://github.com/phaneendra520" target="_blank" class="btn btn-secondary">GitHub</a>
+            </div>
+
+            <div class="research-topics">
+                <span class="research-topic">AI Security</span>
+                <span class="research-topic">Secure Distributed Ledgers</span>
+                <span class="research-topic">Post-Quantum Security</span>
+                <span class="research-topic">Market Infrastructure</span>
+                <span class="research-topic">Post-Trade Automation</span>
+            </div>
+
+            <h3 style="margin-bottom: 2rem;">Research Areas</h3>
+
+            <div class="work-grid">
+                <div class="work-item">
+                    <h3>Quantum-secured architectures for time-sensitive finance</h3>
+                    <p>Secure communication models, threat resilience, and performance constraints for real-time trading systems.</p>
+                </div>
+                <div class="work-item">
+                    <h3>AI-driven exception management for post-trade workflows</h3>
+                    <p>Human-in-the-loop ML controls for prioritization, routing, remediation, and auditability.</p>
+                </div>
+                <div class="work-item">
+                    <h3>Scalable market-data processing and analytics pipelines</h3>
+                    <p>Architectures for high-throughput ingestion, normalization, and multi-asset analytics at scale.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="publications">
+        <div class="container">
+            <h2>Selected Publications</h2>
+            <p class="section-intro">All links open in a new tab.</p>
+
+            <div class="publication">
+                <div class="publication-title">Quantum AI for Intraday Basel Capital Adequacy & T+0 Settlement Risk</div>
+                <div class="publication-meta">
+                    May 25, 2025 • <span class="publication-venue">Journal of Information Systems Engineering and Management</span> • Published
+                </div>
+                <a href="https://jisem-journal.com/index.php/journal/article/view/13925" target="_blank" class="publication-link">View at publisher →</a>
+            </div>
+
+            <div class="publication">
+                <div class="publication-title">Agentic AI Framework for Automating Legacy Core-Banking Operations and Regulatory Reporting Pipelines</div>
+                <div class="publication-meta">
+                    Feb 27, 2025 • <span class="publication-venue">Journal of Information Systems Engineering and Management</span> • Published
+                </div>
+                <a href="https://jisem-journal.com/index.php/journal/article/view/13924" target="_blank" class="publication-link">View at publisher →</a>
+            </div>
+
+            <div class="publication">
+                <div class="publication-title">Post-Quantum Regulatory Cybersecurity for Global Banking and Financial Infrastructure</div>
+                <div class="publication-meta">
+                    Dec 12, 2024 • <span class="publication-venue">Computer Fraud & Security</span> • Published
+                </div>
+                <a href="https://computerfraudsecurity.com/index.php/journal/article/view/853" target="_blank" class="publication-link">View at publisher →</a>
+            </div>
+
+            <div class="publication">
+                <div class="publication-title">Scalable Real-Time Market Data Processing Architecture for High-Volume Multi-Asset Analytics in Fund Management</div>
+                <div class="publication-meta">
+                    Oct 12, 2024 • <span class="publication-venue">International Journal of Intelligent Systems and Applications in Engineering (IJISAE)</span> • Published
+                </div>
+                <a href="https://ijisae.org/index.php/IJISAE/article/view/7973" target="_blank" class="publication-link">View at publisher →</a>
+            </div>
+
+            <div class="publication">
+                <div class="publication-title">GenAI-Driven Scenario Generation for Intraday Market Risk, Liquidity Stress Testing, and Portfolio Optimization</div>
+                <div class="publication-meta">
+                    Mar 05, 2024 • <span class="publication-venue">International Journal of Intelligent Systems and Applications in Engineering (IJISAE)</span> • Published
+                </div>
+                <a href="https://ijisae.org/index.php/IJISAE/article/view/7974" target="_blank" class="publication-link">View at publisher →</a>
+            </div>
+
+            <div class="publication">
+                <div class="publication-title">Forecasting FX Settlement Liquidity Requirements Using Statistical & ML Models</div>
+                <div class="publication-meta">
+                    Dec 04, 2023 • <span class="publication-venue">International Journal on Recent and Innovation Trends in Computing and Communication (IJRITCC)</span> • Published
+                </div>
+                <a href="https://ijritcc.org/index.php/ijritcc/article/view/11810" target="_blank" class="publication-link">View at publisher →</a>
+            </div>
+
+            <div class="publication">
+                <div class="publication-title">A Secure Cloud-Native API Architecture for Banking: Integrating Zero-Trust Controls and Data-Science-Driven Threat Intelligence</div>
+                <div class="publication-meta">
+                    Aug 15, 2022 • <span class="publication-venue">International Journal of Communication Networks and Information Security (IJCNIS)</span> • Published
+                </div>
+                <a href="https://mail.ijcnis.org/index.php/ijcnis/article/view/8688" target="_blank" class="publication-link">View at publisher →</a>
+            </div>
+
+            <div class="publication">
+                <div class="publication-title">Confidence-Driven Human-in-the-Loop RPA Framework for Automating Corporate Actions Notice Interpretation in Post-Trade Operations</div>
+                <div class="publication-meta">
+                    Mar 09, 2021 • <span class="publication-venue">Computer Fraud & Security</span> • Published
+                </div>
+                <a href="https://computerfraudsecurity.com/index.php/journal/article/view/847" target="_blank" class="publication-link">View at publisher →</a>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <h2>Writing & Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3>Blog</h3>
+                    <p>Short notes on engineering, architecture, and research ideas.</p>
+                    <a href="#" class="project-link">Coming soon →</a>
+                </div>
+                <div class="project-card">
+                    <h3>Profiles</h3>
+                    <p>Publication and author profiles.</p>
+                    <a href="https://orcid.org/0009-0006-9165-3331" target="_blank" class="project-link">ORCID →</a><br>
+                    <a href="https://scholar.google.com/citations?hl=en&view_op=search_authors&mauthors=Phaneendra+Yerra" target="_blank" class="project-link" style="margin-top: 0.5rem; display: inline-flex;">Scholar →</a>
+                </div>
+                <div class="project-card">
+                    <h3>Projects</h3>
+                    <p>Code samples and prototypes hosted on GitHub.</p>
+                    <a href="https://github.com/phaneendra520" target="_blank" class="project-link">github.com/phaneendra520 →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <div class="contact-content">
+                <h2>Contact</h2>
+                <p class="section-intro" style="text-align: center; margin: 2rem auto;">Best way to reach me:</p>
+                <div class="contact-links">
+                    <a href="mailto:phaneendrayerra@outlook.com" class="contact-link">Email</a>
+                    <a href="https://www.linkedin.com/" target="_blank" class="contact-link">LinkedIn</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>© 2026 Phaneendra Yerra</p>
+        </div>
+    </footer>
 </body>
 </html>
